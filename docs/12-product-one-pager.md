@@ -1,6 +1,6 @@
 # InsureMe — Product Overview
 
-**Homeowners insurance for veterans and elders. An AI broker that works for you, with a real person always a call away.**
+**Homeowners insurance for veterans and elders. An AI broker that works for you, with a licensed human always a message away.**
 
 ---
 
@@ -19,7 +19,7 @@ InsureMe's AI agent does everything a broker does, and does it every day, not on
 | **Claim** | Claims companion: guided photos and inventory, live tracker, deadline reminders, escalation to a licensed advocate |
 | **Family** | Trusted-contact access so an adult child or caregiver can help |
 
-**Built for our users:** large text, read-aloud, voice and phone options, no time-outs. A veteran-staffed licensed team is always a call away.
+**Built for our users:** large text, read-aloud, no time-outs. Free to sign up, and no sales calls, ever. A veteran-staffed licensed team answers by in-app chat or email ticket.
 
 ### Who it's for
 - **Veteran homeowners:** about 13M, with 77% homeownership

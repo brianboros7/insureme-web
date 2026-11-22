@@ -23,10 +23,14 @@ Research started 2026-11-22. US-focused, property & casualty (P&C) first.
 | 14 | [50-state regulation framework](14-state-regulation-50-states.md) | How insurance works state by state; baseline table for all 50 |
 | 15 | [Launch states: IN, TX, IL, VA](15-launch-states.md) | Deep dive on the 4 launch states |
 | 16 | [Legislation & lobbying](16-legislation-and-lobbying.md) | How laws get made, who lobbies, our policy agenda |
+| 17 | [Product research](17-product-research.md) | Personas, features, MVP scope; daily research log |
+| — | [Licensing folder](licensing/README.md) | Everything needed to become a licensed agency in IN, TX, IL, VA |
 | — | [White paper (living draft)](whitepaper.md) | Combines the research as it grows |
-| — | [Investor pitch deck](https://claude.ai/artifact/6Wtg6Sokmpu7fKDSXGFkA9) | 13 slides (private claude.ai artifact) |
+| — | [Investor pitch deck](https://claude.ai/artifact/6Wtg6Sokmpu7fKDSXGFkA9) | 23 slides (private claude.ai artifact) |
 
 **Launch states (2026-11-22):** Indiana and Texas (red), Illinois and Virginia (blue).
+
+**Support decision (2026-11-22):** human help by in-app chat and email tickets only (no phone); free sign-up for customers.
 
 **Focus decision (2026-11-22):** homeowners insurance first, aimed at **veterans and elders (65+)**.
 

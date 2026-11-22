@@ -22,7 +22,7 @@ Homeowners insurance costs more every year: +13% nationally in 2024, +19% in Tex
 - 74, widow, Indiana. Paid-off home on a fixed income.
 - **Wants:** a lower bill, someone patient to talk to, protection from scams.
 - **Fears:** premium jumps, confusing letters, contractors who take advantage.
-- **Tech:** uses a phone and email; prefers large text and calls. Her son Jack helps.
+- **Tech:** uses a smartphone and email; prefers large text and a patient human. Her son Jack helps, and can message an advisor on her behalf.
 
 ### Jack-as-caregiver (supporting role)
 An adult child helping a parent. **Wants:** to see Mom's policy, get alerts, and step in when something goes wrong.
@@ -37,10 +37,11 @@ An adult child helping a parent. **Wants:** to see Mom's policy, get alerts, and
 ## 4. Product principles
 1. **Hero and guide:** the customer is the hero; the AI agent is the guide (empathy + a plan + authority).
 2. **AI does the work, humans own the judgment:** licensed approval for binding and for any coverage reduction.
-3. **Accessible by default:** large text, high contrast, plain language, voice and phone options, no time-outs (WCAG 2.2 AA).
+3. **Accessible by default:** large text, high contrast, plain language, read-aloud, no time-outs (WCAG 2.2 AA).
 4. **Show the trade-off:** every option shows premium, deductible and what's covered side by side.
 5. **Never imply government affiliation:** no VA-style seals or wording.
-6. **Earn trust with proof:** a savings dashboard backed by real quotes, never unsupported "save X%" claims.
+6. **Free to join, no sales calls:** sign-up and quotes are free for customers (we're paid by carrier commission); people reach us only by in-app chat or email ticket, so we never cold-call.
+7. **Earn trust with proof:** a savings dashboard backed by real quotes, never unsupported "save X%" claims.
 
 ## 5. Feature set & prioritization
 
@@ -48,7 +49,7 @@ An adult child helping a parent. **Wants:** to see Mom's policy, get alerts, and
 |---|---------|---------|----------|----------------|
 | F1 | **Guided quote intake:** address, property-data prefill, short questions, veteran/65+ flags | Jack, Linda | P0 (MVP) | ✅ mocked prefill |
 | F2 | **Carrier comparison** with a **deductible slider** (premium ↔ deductible, plain language) | Jack | P0 | ✅ mock carriers |
-| F3 | **Talk to a licensed advisor:** call/video/chat handoff | All | P0 | ✅ button + explanation |
+| F3 | **Message a licensed advisor:** in-app chat + email tickets (no phone or video) | All | P0 | ✅ mock chat + ticket |
 | F4 | **Bind request** with human approval gate + lender proof of insurance | Jack | P0 | ✅ simulated "submitted for licensed review" |
 | F5 | **Renewal watchdog:** alerts, re-shop, discount finder | All | P0 | ✅ dashboard card |
 | F6 | **Claims companion:** guided first notice of loss, photo checklist, deadlines, communication log | All | P1 | ✅ checklist flow |
@@ -57,7 +58,7 @@ An adult child helping a parent. **Wants:** to see Mom's policy, get alerts, and
 | F9 | **Mitigation finder** (impact-resistant roof, FORTIFIED, grants) | Jack | P1 | ✅ discount tips in results |
 | F10 | **Non-renewal rescue** (FAIR plan + wrap-around policy) | Linda | P2 | — |
 | F11 | **VA-loan closing quote** (lender partner flow) | Jack | P2 | — |
-| F12 | **Voice agent** (phone line with AI + human) | Linda | P2 | — |
+| F12 | ~~Voice agent / phone line~~: out of scope by decision (2026-11-22) | — | — | — |
 | F13 | **Savings dashboard** ("you've saved $X") | All | P1 | ✅ simple version |
 
 ## 6. MVP scope (Phase 1, licensed agency, launch state VA then TX, IL, IN)
@@ -97,6 +98,13 @@ An adult child helping a parent. **Wants:** to see Mom's policy, get alerts, and
 
 ## Daily research log
 <!-- Newest first. Each daily update adds an entry here and edits the sections above where findings change them. -->
+
+### 2026-11-22: Decision: chat and email only; free sign-up
+- **Human support is in-app chat and email tickets only.** No phone line, no video. Licensed advisors answer every thread; AI drafts, humans approve.
+- **Sign-up is free for customers.** Revenue stays carrier commission (Phase 1).
+- Why it works: async channels let a small licensed team cover many more customers, every conversation is written and audit-logged (good for compliance and E&O), and "no sales calls, ever" is a trust message for elders tired of robocalls.
+- Risks to research: elders who strongly prefer voice (mitigate with read-aloud, large text, and family members messaging on their behalf); claims emergencies needing urgent help (target a fast chat response SLA and route to the carrier's 24/7 claims line); any state rules requiring a published phone contact for licensed agencies or complaints.
+- Changes: F3 is now chat + tickets; F12 voice agent removed; prototype updated.
 
 ### 2026-11-22: Day 0 (baseline)
 - Wrote the document from docs 01–16: personas (Jack, Linda), jobs to be done, a 13-feature prioritization, MVP scope, requirements, metrics.

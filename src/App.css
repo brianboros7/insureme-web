@@ -97,3 +97,14 @@ main { padding: 32px 16px 64px; }
   .hero h1 { font-size: 2em; }
   .topbar { padding: 12px 16px; }
 }
+
+.free-note { font-weight: 700; color: var(--good); margin: 8px 0 0; }
+.tabs { display: flex; gap: 8px; margin: 12px 0; }
+.tabs button { flex: 1; min-height: 44px; border: 2px solid var(--navy); background: var(--paper); color: var(--navy); border-radius: 10px; font-weight: 700; cursor: pointer; }
+.tabs button.on { background: var(--navy); color: var(--light); }
+.chat { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; max-height: 300px; overflow-y: auto; }
+.chat li { padding: 10px 14px; border-radius: 12px; max-width: 85%; background: #eef3f8; }
+.chat li.you { align-self: flex-end; background: var(--navy); color: var(--light); }
+.chat .who { display: block; font-size: 0.8em; font-weight: 700; opacity: 0.8; }
+.field textarea { padding: 12px 14px; border: 2px solid var(--muted); border-radius: 10px; background: #fff; font: inherit; font-weight: 400; }
+.dialog { max-height: 90vh; overflow-y: auto; }

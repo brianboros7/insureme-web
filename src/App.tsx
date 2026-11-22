@@ -57,7 +57,7 @@ export default function App() {
             ))}
           </div>
           <button className="btn ghost" onClick={() => setAdvisorOpen(true)}>
-            Talk to a person
+            Message an advisor
           </button>
         </div>
       </header>
@@ -91,14 +91,15 @@ function Home({ onStart, onDashboard }: { onStart: () => void; onDashboard: () =
     <section className="hero">
       <div className="hero-text">
         <p className="eyebrow">Homeowners insurance for veterans and elders</p>
-        <h1>An AI broker that works for you. A real person is always a call away.</h1>
+        <h1>An AI broker that works for you. A licensed human is always a message away.</h1>
         <p className="lead">
           We shop every carrier we can, find every discount, and help you choose a deductible your family can actually
           afford. Then we watch your policy every year and stand beside you when you file a claim.
         </p>
+        <p className="free-note">Free to sign up. No sales calls, ever.</p>
         <div className="row">
           <button className="btn primary big" onClick={onStart}>
-            Get my quotes
+            Get my free quotes
           </button>
           <button className="btn secondary big" onClick={onDashboard}>
             See a sample dashboard
@@ -106,7 +107,7 @@ function Home({ onStart, onDashboard }: { onStart: () => void; onDashboard: () =
         </div>
         <ul className="trust">
           <li>Licensed advisors approve every policy</li>
-          <li>Large text, phone and family help built in</li>
+          <li>Large text, in-app chat and family help built in</li>
           <li>We never sell your data</li>
         </ul>
       </div>
@@ -314,7 +315,7 @@ function Review({
         <li>Policy bound and proof of insurance sent to your mortgage lender</li>
       </ol>
       <div className="row">
-        <button className="btn secondary" onClick={onAdvisor}>Talk to the advisor</button>
+        <button className="btn secondary" onClick={onAdvisor}>Message the advisor</button>
         <button className="btn primary" onClick={onDashboard}>Go to my dashboard</button>
       </div>
     </section>
@@ -452,19 +453,91 @@ function Toggle({ label, checked, onChange }: { label: string; checked: boolean;
 }
 
 function AdvisorDialog({ onClose }: { onClose: () => void }) {
+  const [tab, setTab] = useState<'chat' | 'ticket'>('chat')
+  const [draft, setDraft] = useState('')
+  const [messages, setMessages] = useState<{ from: 'you' | 'advisor'; text: string }[]>([
+    {
+      from: 'advisor',
+      text: 'Hi Jack, I’m Maria, a licensed advisor on the InsureMe team. I can see everything your AI guide has prepared. What can I help with?',
+    },
+  ])
+  const [ticket, setTicket] = useState({ subject: '', body: '' })
+  const [ticketNo, setTicketNo] = useState<string | null>(null)
+
+  const send = () => {
+    const text = draft.trim()
+    if (!text) return
+    setMessages((m) => [
+      ...m,
+      { from: 'you', text },
+      { from: 'advisor', text: 'Thanks, I’m looking into this now. If you step away, I’ll also email you my answer.' },
+    ])
+    setDraft('')
+  }
+
   return (
     <div className="overlay" role="dialog" aria-modal="true" aria-labelledby="advisor-title">
       <div className="dialog">
-        <h2 id="advisor-title">Talk to a licensed advisor</h2>
-        <p>
-          In the real product this connects you to a licensed, veteran-staffed advisor by phone, video or chat. They see
-          everything your AI guide has prepared, so you never repeat yourself.
+        <h2 id="advisor-title">Message a licensed advisor</h2>
+        <p className="muted">
+          Real, licensed people, by in-app chat or email ticket. Usually a reply within 1 business hour. Sample
+          conversation for the prototype.
         </p>
-        <div className="row">
-          <button className="btn primary">Call (800) 555-0100</button>
-          <button className="btn secondary">Start a video call</button>
+        <div className="tabs" role="tablist">
+          <button role="tab" aria-selected={tab === 'chat'} className={tab === 'chat' ? 'on' : ''} onClick={() => setTab('chat')}>
+            Chat
+          </button>
+          <button role="tab" aria-selected={tab === 'ticket'} className={tab === 'ticket' ? 'on' : ''} onClick={() => setTab('ticket')}>
+            Email ticket
+          </button>
         </div>
-        <button className="btn ghost" onClick={onClose} autoFocus>
+
+        {tab === 'chat' ? (
+          <>
+            <ol className="chat" aria-live="polite">
+              {messages.map((m, i) => (
+                <li key={i} className={m.from}>
+                  <span className="who">{m.from === 'you' ? 'You' : 'Maria, licensed advisor'}</span>
+                  {m.text}
+                </li>
+              ))}
+            </ol>
+            <div className="row">
+              <label className="field grow">
+                Your message
+                <input
+                  value={draft}
+                  onChange={(e) => setDraft(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && send()}
+                  placeholder="e.g. Is a $2,500 deductible right for us?"
+                />
+              </label>
+              <button className="btn primary" onClick={send}>Send</button>
+            </div>
+          </>
+        ) : ticketNo ? (
+          <p className="notice" role="status">
+            Ticket <strong>{ticketNo}</strong> is open. A licensed advisor will reply by email and in your InsureMe inbox.
+          </p>
+        ) : (
+          <>
+            <label className="field">
+              Subject
+              <input value={ticket.subject} onChange={(e) => setTicket({ ...ticket, subject: e.target.value })} />
+            </label>
+            <label className="field">
+              What do you need help with?
+              <textarea rows={4} value={ticket.body} onChange={(e) => setTicket({ ...ticket, body: e.target.value })} />
+            </label>
+            <button
+              className="btn primary"
+              onClick={() => setTicketNo(`IM-${Math.floor(10000 + Math.random() * 89999)}`)}
+            >
+              Open ticket
+            </button>
+          </>
+        )}
+        <button className="btn ghost" onClick={onClose}>
           Close
         </button>
       </div>

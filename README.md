@@ -1,6 +1,6 @@
 # InsureMe
 
-**Homeowners insurance for veterans and elders: an AI broker that works for you, with a real person always a call away.**
+**Homeowners insurance for veterans and elders: an AI broker that works for you, with a licensed human always a message away. Free to sign up.**
 
 InsureMe's AI agent does a broker's job (shopping carriers, finding discounts, choosing a deductible a family can afford, watching every renewal, guiding claims, and checking contractors for scams). Licensed, veteran-staffed advisors approve every policy.
 
@@ -14,7 +14,8 @@ Follows Jack, a 48-year-old Army veteran in San Antonio, through the app:
 2. **Guided quote:** address lookup with property prefill, veteran/65+/bundle questions
 3. **Compare:** pick a wind/hail deductible and see what each carrier charges, explained in plain language by "Your InsureMe guide"
 4. **Licensed review:** the AI prepares the application and a licensed human approves it
-5. **Dashboard:** savings, renewal watchdog, Mom's (Linda's) policy shared with Jack, claims companion checklist, scam shield
+5. **Message an advisor:** in-app chat or email ticket with a licensed human (no phone line)
+6. **Dashboard:** savings, renewal watchdog, Mom's (Linda's) policy shared with Jack, claims companion checklist, scam shield
 
 Accessibility: text-size control (A / A+ / A++), large touch targets, high-contrast colors, keyboard focus styles.
 
