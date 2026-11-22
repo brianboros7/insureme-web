@@ -1,0 +1,426 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400..700&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+@page { size: 1920px 1080px; margin: 0; }
+* { margin: 0 }
+body { font: 32px/1.2 sans-serif }
+body > section { width: 1920px !important; height: 1080px !important; overflow: hidden !important; box-sizing: border-box !important; position: relative; isolation: isolate; break-after: page; }
+aside { display: none !important }
+h1 { font-size: 96px; font-weight: 600 } h2 { font-size: 64px; font-weight: 600 } h3 { font-size: 44px; font-weight: 600 }
+table { width: 100%; border-collapse: separate; border-spacing: 0; }
+th, td { padding: .35em .6em; text-align: left; border-bottom: 2px solid #0002; }
+x-shape { display: block; flex-shrink: 0; }
+x-shape[kind="arrow-right"] { clip-path: polygon(0 30%, 60% 30%, 60% 0, 100% 50%, 60% 100%, 60% 70%, 0 70%); }
+:root {
+  --dark: #13263F;
+  --navy: #1F3A5F;
+  --light: #F7F5F0;
+  --paper: #FFFDF8;
+  --gold: #E0A030;
+  --gold-ink: #8F560A;
+  --ink: #1B2533;
+  --muted: #4A5566;
+  --soft-on-dark: #C9D4E3;
+}
+
+body { font-family: 'Atkinson Hyperlegible', Arial, sans-serif; }
+
+section {
+  background: var(--light);
+  color: var(--ink);
+  padding: 128px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+section.dark { background: var(--dark); color: var(--light); }
+section.foot { padding: 128px 128px 160px; }
+
+h1, h2, h3 { font-family: 'DM Sans', Arial, sans-serif; }
+h2 { font-size: 72px; font-weight: 700; line-height: 1.1; color: var(--navy); }
+section.dark h2 { color: var(--light); }
+h3 { font-size: 40px; font-weight: 700; line-height: 1.15; color: var(--navy); }
+
+.eyebrow { font-size: 28px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold-ink); }
+section.dark .eyebrow { color: var(--gold); }
+.head { display: flex; flex-direction: column; gap: 16px; }
+
+.lead { font-size: 36px; line-height: 1.4; color: var(--muted); }
+section.dark .lead { color: var(--soft-on-dark); }
+.body { font-size: 28px; line-height: 1.4; color: var(--muted); }
+section.dark .body { color: var(--soft-on-dark); }
+
+.source { position: absolute; left: 128px; bottom: 64px; width: 1664px; font-size: 24px; color: var(--muted); }
+section.dark .source { color: var(--soft-on-dark); }
+
+/* Big numbers */
+.stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 48px; flex: 1; align-items: start; }
+.stat { display: flex; flex-direction: column; gap: 16px; border-top: 8px solid var(--gold); padding-top: 32px; }
+.stat .num { font-family: 'DM Sans', Arial, sans-serif; font-size: 120px; font-weight: 700; line-height: 1; color: var(--navy); }
+section.dark .stat .num { color: var(--light); }
+.stat .label { font-size: 32px; line-height: 1.35; color: var(--muted); }
+section.dark .stat .label { color: var(--soft-on-dark); }
+
+/* Cards */
+.cards { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px; }
+.cards.two { grid-template-columns: 1fr 1fr; }
+.cards.four { grid-template-columns: 1fr 1fr 1fr 1fr; }
+.card { background: var(--paper); border-left: 8px solid var(--gold); padding: 36px 40px; display: flex; flex-direction: column; gap: 12px; }
+section.dark .card { background: var(--navy); }
+section.dark .card h3 { color: var(--light); }
+.card .body { font-size: 28px; }
+
+/* Tables */
+table { font-size: 30px; color: var(--ink); width: 100%; }
+section.dark table { color: var(--light); }
+thead, .thead { background: var(--navy); color: var(--light); }
+
+/* Flow diagram */
+.flow { display: flex; flex-direction: row; align-items: center; gap: 24px; }
+.node { background: var(--paper); border: 4px solid var(--navy); border-radius: 16px; padding: 32px; display: flex; flex-direction: column; gap: 12px; }
+.node.hero { background: var(--navy); border-color: var(--navy); flex: 1; }
+.node.hero h3 { color: var(--light); }
+.node.hero .body { color: var(--soft-on-dark); }
+.band { background: var(--gold); color: var(--dark); padding: 24px 32px; border-radius: 16px; font-size: 30px; font-weight: 700; }
+
+/* Cover */
+.cover-wrap { display: flex; flex-direction: column; justify-content: center; gap: 32px; flex: 1; }
+.brand { font-family: 'DM Sans', Arial, sans-serif; font-size: 140px; font-weight: 700; line-height: 1; color: var(--light); }
+.brand .me { color: var(--gold); }
+.tagline { font-size: 48px; line-height: 1.3; color: var(--light); width: 1300px; }
+
+/* Statement */
+.statement { font-family: 'DM Sans', Arial, sans-serif; font-size: 88px; font-weight: 700; line-height: 1.1; color: var(--light); width: 1500px; }
+.statement .hl { color: var(--gold); }
+
+/* Four-up stats (market size) */
+.stats.four { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 32px; }
+.stats.four .num { font-size: 96px; }
+.stats.four .label { font-size: 28px; }
+
+/* Business model canvas */
+.bmc { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1fr; grid-template-rows: auto auto; gap: 16px; }
+.bmc-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.blk { background: var(--paper); border-top: 6px solid var(--gold); padding: 20px; display: flex; flex-direction: column; gap: 4px; }
+.blk h3 { font-size: 28px; }
+.blk .item { font-size: 24px; line-height: 1.3; color: var(--ink); }
+.blk.vp { background: var(--navy); }
+.blk.vp h3 { color: var(--light); }
+.blk.vp .item { color: var(--light); }
+
+/* Persona */
+.persona { display: flex; flex-direction: row; gap: 64px; align-items: center; flex: 1; }
+.persona .cards { flex: 1; }
+
+/* Motion: finished look is the plain rule */
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } }
+.rise { animation: rise 600ms ease-out both; animation-delay: calc(var(--i, 0) * 120ms); }
+
+.rise { animation: none !important; }
+</style></head><body>
+<section id="cover" class="dark">
+<div class="cover-wrap">
+<svg aria-label="InsureMe mark: a roof of two chevrons sheltering a person" width="240" height="240" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg"><polyline points="28,108 120,28 212,108" fill="none" stroke="#F7F5F0" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/><polyline points="60,140 120,88 180,140" fill="none" stroke="#E0A030" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/><circle cx="120" cy="144" r="16" fill="#F7F5F0"/><rect x="104" y="172" width="32" height="48" rx="16" fill="#F7F5F0"/></svg>
+<h1 class="brand">Insure<span class="me">Me</span></h1>
+<p class="tagline">An AI broker that works for veteran and elder homeowners, with a real person always a call away.</p>
+<p class="eyebrow">Investor presentation · 2026</p>
+</div>
+<aside>InsureMe: homeowners insurance for veterans and elders. The AI does the broker’s work; licensed, veteran-staffed humans handle judgment calls. Not affiliated with the VA or any government agency.</aside>
+</section>
+
+<section id="meet-jack" class="foot">
+<div class="persona">
+<div class="cover-wrap" style="width:1000px">
+<p class="eyebrow">Meet Jack</p>
+<h2>A veteran, a homeowner, a husband and a dad of two</h2>
+<ul class="lead" style="width:1000px">
+<li>48, a U.S. Army veteran</li>
+<li>Owns a $380,000 home in San Antonio, Texas, bought with a VA loan</li>
+<li>Married, with two kids</li>
+<li>Also looks out for his mom, Linda, 74, who lives alone in Indiana</li>
+</ul>
+</div>
+<svg aria-label="Illustration of Jack, a 48-year-old veteran, smiling in front of his house" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="600" rx="48" fill="#F2E3C4"/><rect x="0" y="0" width="600" height="230" rx="48" fill="#BFD8EE"/><rect x="0" y="180" width="600" height="50" fill="#BFD8EE"/><rect x="120" y="290" width="360" height="310" fill="#2C4A73"/><polygon points="70,305 300,120 530,305" fill="#1F3A5F"/><polyline points="70,305 300,120 530,305" fill="none" stroke="#E0A030" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/><rect x="150" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/><rect x="380" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/><path d="M130,600 C140,485 215,442 300,442 C385,442 460,485 470,600 Z" fill="#55663F"/><path d="M262,446 L300,505 L338,446 Z" fill="#E9E4D8"/><path d="M300,505 L300,600" stroke="#3F4D2F" stroke-width="6"/><rect x="272" y="378" width="56" height="78" rx="22" fill="#B97F5C"/><ellipse cx="223" cy="326" rx="15" ry="23" fill="#C98E68"/><ellipse cx="377" cy="326" rx="15" ry="23" fill="#C98E68"/><ellipse cx="300" cy="320" rx="78" ry="92" fill="#D49C76"/><path d="M232,345 C238,398 272,412 300,412 C328,412 362,398 368,345 C356,390 328,400 300,400 C272,400 244,390 232,345 Z" fill="#5A4636" opacity="0.22"/><path d="M222,305 C216,236 258,214 300,214 C344,214 386,234 378,305 C372,272 352,254 300,252 C250,254 228,272 222,305 Z" fill="#4E3C2E"/><path d="M222,305 C220,286 224,272 232,262 C232,280 228,292 226,305 Z" fill="#9C948B"/><path d="M378,305 C380,286 376,272 368,262 C368,280 372,292 374,305 Z" fill="#9C948B"/><path d="M256,298 Q270,290 286,296" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/><path d="M314,296 Q330,290 344,298" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/><circle cx="272" cy="318" r="6" fill="#23262B"/><circle cx="328" cy="318" r="6" fill="#23262B"/><path d="M300,322 Q293,348 303,355" fill="none" stroke="#A66F4F" stroke-width="4" stroke-linecap="round"/><path d="M282,376 Q300,386 318,376" fill="none" stroke="#7A4A36" stroke-width="5" stroke-linecap="round"/></svg>
+</div>
+<p class="source">Jack and Linda are illustrative composite personas built from our research, not real customers.</p>
+<aside>Open by introducing Jack as a person before anything goes wrong: a veteran, a homeowner, a husband and a dad of two, who also looks out for his mom. He’s the hero of the customer story. On the next slide, the hail hits.</aside>
+</section>
+
+<section id="jack-storm" class="dark foot">
+<div class="persona">
+<div class="cover-wrap" style="width:1000px">
+<p class="eyebrow">The problem</p>
+<p class="statement" style="width:1000px; font-size:72px">Last spring, hail hit Jack’s roof. He paid <span class="hl">$7,600</span> before his insurance paid a dollar.</p>
+<p class="lead" style="font-size:30px">Jack already pays about $4,100 a year. His policy has a 2% wind and hail deductible on his $380,000 home, normal in Texas, where the average is 2.2% ($7,761). In Indiana, his mom Linda faces rising premiums alone.</p>
+</div>
+<svg aria-label="Illustration of Jack, a worried 48-year-old veteran, in front of his house during a hailstorm" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="600" rx="48" fill="#F2E3C4"/><rect x="0" y="0" width="600" height="230" rx="48" fill="#9AA8BC"/><rect x="0" y="180" width="600" height="50" fill="#9AA8BC"/><g fill="#FFFFFF"><circle cx="70" cy="60" r="9"/><circle cx="150" cy="120" r="7"/><circle cx="235" cy="45" r="8"/><circle cx="380" cy="70" r="9"/><circle cx="470" cy="40" r="7"/><circle cx="540" cy="120" r="9"/><circle cx="110" cy="190" r="6"/><circle cx="500" cy="200" r="7"/><circle cx="320" cy="25" r="6"/></g><g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.7"><line x1="60" y1="35" x2="70" y2="50"/><line x1="370" y1="45" x2="380" y2="60"/><line x1="530" y1="95" x2="540" y2="110"/></g><rect x="120" y="290" width="360" height="310" fill="#2C4A73"/><polygon points="70,305 300,120 530,305" fill="#1F3A5F"/><polyline points="70,305 300,120 530,305" fill="none" stroke="#E0A030" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/><rect x="150" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/><rect x="380" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/><path d="M130,600 C140,485 215,442 300,442 C385,442 460,485 470,600 Z" fill="#55663F"/><path d="M262,446 L300,505 L338,446 Z" fill="#E9E4D8"/><path d="M300,505 L300,600" stroke="#3F4D2F" stroke-width="6"/><rect x="272" y="378" width="56" height="78" rx="22" fill="#B97F5C"/><ellipse cx="223" cy="326" rx="15" ry="23" fill="#C98E68"/><ellipse cx="377" cy="326" rx="15" ry="23" fill="#C98E68"/><ellipse cx="300" cy="320" rx="78" ry="92" fill="#D49C76"/><path d="M232,345 C238,398 272,412 300,412 C328,412 362,398 368,345 C356,390 328,400 300,400 C272,400 244,390 232,345 Z" fill="#5A4636" opacity="0.22"/><path d="M222,305 C216,236 258,214 300,214 C344,214 386,234 378,305 C372,272 352,254 300,252 C250,254 228,272 222,305 Z" fill="#4E3C2E"/><path d="M222,305 C220,286 224,272 232,262 C232,280 228,292 226,305 Z" fill="#9C948B"/><path d="M378,305 C380,286 376,272 368,262 C368,280 372,292 374,305 Z" fill="#9C948B"/><path d="M256,301 Q270,292 286,290" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/><path d="M314,290 Q330,292 344,301" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/><circle cx="272" cy="318" r="6" fill="#23262B"/><circle cx="328" cy="318" r="6" fill="#23262B"/><path d="M300,322 Q293,348 303,355" fill="none" stroke="#A66F4F" stroke-width="4" stroke-linecap="round"/><path d="M282,380 Q300,371 318,380" fill="none" stroke="#7A4A36" stroke-width="5" stroke-linecap="round"/></svg>
+</div>
+<p class="source">Sources: Insurify hail-deductible analysis; TDI. Jack and Linda are illustrative composite personas.</p>
+<aside>Now the problem. Jack, the hero of the customer story, at his worst moment: he pays thousands in premium every year and still can’t afford the deductible on the storm most likely to hit his house. A percentage deductible grows with his home’s value, and the Texas FAIR Plan drops its 1% option in July 2026, so it’s getting worse. Pause here.</aside>
+</section>
+
+<section id="problem" class="foot">
+<div class="head">
+<p class="eyebrow">The problem</p>
+<h2>Jack isn’t alone: homeowners pay more for less</h2>
+</div>
+<div class="stats">
+<div class="stat rise" style="--i:0"><p class="num">+13%</p><p class="label">US homeowners premiums in 2024 alone, to about $173B a year</p></div>
+<div class="stat rise" style="--i:1"><p class="num">44 days</p><p class="label">Average wait from claim to final payment in 2025, the longest on record</p></div>
+<div class="stat rise" style="--i:2"><p class="num">~14%</p><p class="label">Of every premium goes to the broker, yet few customers are ever re-shopped</p></div>
+</div>
+<p class="source">Sources: S&amp;P Global Market Intelligence (2025); J.D. Power 2025 U.S. Property Claims Satisfaction Study; 2025 commission benchmark (Sonant).</p>
+<aside>Zoom out from Jack to the whole market. Premiums are rising fast, claims are slow, and the broker’s cut is built into the price whether or not the customer gets service. Small personal accounts aren’t worth a human broker’s time.</aside>
+</section>
+
+<section id="audience" class="foot">
+<div class="head">
+<p class="eyebrow">Who we serve first</p>
+<h2>Millions of Jacks, and millions of Lindas</h2>
+</div>
+<div class="stats">
+<div class="stat rise" style="--i:0"><p class="num">77%</p><p class="label">of about 17.3M US veterans own their home, vs about 60% of non-veterans</p></div>
+<div class="stat rise" style="--i:1"><p class="num">79%</p><p class="label">homeownership among householders 65+, many on fixed incomes</p></div>
+<div class="stat rise" style="--i:2"><p class="num">+20%</p><p class="label">growth in 65+ households from 2025 to 2035</p></div>
+</div>
+<p class="body">They’re also the most exposed: rising premiums on fixed incomes, non-renewals, and storm-chaser scams aimed at older homeowners.</p>
+<p class="source">Sources: Inman/NAR (2026); CNAS (2026); Census HVS via NAHB (2025); Harvard JCHS (2025); NCOA.</p>
+<aside>Jack stands for veteran homeowners; his mom Linda stands for homeowners 65+. Veterans and elders are loyal, high-homeownership segments that the big programs serve unevenly. USAA doesn’t fit everyone, and AARP/The Hartford isn’t offered in CA or FL.</aside>
+</section>
+
+<section id="solution">
+<div class="head">
+<p class="eyebrow">The solution: InsureMe</p>
+<h2>Jack gets a guide: an AI broker on his side</h2>
+</div>
+<div class="cards">
+<div class="card rise" style="--i:0"><h3>Shop</h3><p class="body">Compares carriers in minutes and finds every discount.</p></div>
+<div class="card rise" style="--i:1"><h3>Buy</h3><p class="body">Plain-language choices, instant binding, proof sent to the lender.</p></div>
+<div class="card rise" style="--i:2"><h3>Watch</h3><p class="body">Re-shops before every renewal and flags non-renewals early.</p></div>
+<div class="card rise" style="--i:3"><h3>Protect</h3><p class="body">Scam shield verifies contractors and adjusters before you sign.</p></div>
+<div class="card rise" style="--i:4"><h3>Claim</h3><p class="body">Guided photos, live tracker, deadlines, escalation to a human.</p></div>
+<div class="card rise" style="--i:5"><h3>Family</h3><p class="body">Trusted-contact access so an adult child can help.</p></div>
+</div>
+<aside>InsureMe is the solution. In Jack’s story he stays the hero; InsureMe’s AI agent is his guide. It understands his problem, gives him a clear plan, and is backed by licensed humans. Everything a broker does, done every day instead of once a year. Built for our users: large text, read-aloud, voice and phone options, no time-outs.</aside>
+</section>
+
+<section id="how">
+<div class="head">
+<p class="eyebrow">How Jack’s guide works</p>
+<h2>AI does the broker’s work. Humans own the judgment.</h2>
+</div>
+<div class="flow">
+<div class="node rise" style="--i:0; width:340px"><h3>You &amp; your family</h3><p class="body">Chat, voice, SMS or phone</p></div>
+<x-shape kind="arrow-right" style="background:#E0A030; width:80px; height:40px"></x-shape>
+<div class="node hero rise" style="--i:1"><h3>InsureMe broker agent</h3><p class="body">Intake with property-data prefill · Shopping across carrier APIs · Plain-language advice · Binding · Renewal watchdog · Mitigation finder · Claims companion &amp; scam shield</p></div>
+<x-shape kind="arrow-right" style="background:#E0A030; width:80px; height:40px"></x-shape>
+<div class="node rise" style="--i:2; width:340px"><h3>Many carriers</h3><p class="body">Quote, bind and service through APIs</p></div>
+</div>
+<p class="band rise" style="--i:3">Licensed, veteran-staffed advisors approve binding, handle judgment calls and answer the phone. Every step is audit-logged.</p>
+<aside>Legally the licensed agency and its designated responsible licensed producer are accountable; the AI acts on the agency’s behalf. Human approval gates on binding and on any coverage reduction. Aligned with the NAIC Model Bulletin on AI.</aside>
+</section>
+
+<section id="jack-after" class="foot">
+<div class="head">
+<p class="eyebrow">Jack wins</p>
+<h2>A lower deductible without paying more</h2>
+</div>
+<table>
+<tr class="thead"><th style="width:22%"></th><th style="width:18%">Before</th><th style="width:18%">After</th><th style="width:42%">How InsureMe got there</th></tr>
+<tr><td>Wind/hail deductible</td><td>$7,600 (2%)</td><td>$2,500 flat</td><td>Found carriers offering flat deductibles; impact-resistant roof credit helps pay for it</td></tr>
+<tr><td>Annual premium</td><td>~$4,100</td><td>~$3,700</td><td>Shopped every carrier, bundled auto, applied every discount</td></tr>
+<tr><td>After a storm</td><td>On his own</td><td>Claims companion</td><td>Guided photos, deadlines, scam shield, a human advocate</td></tr>
+<tr><td>Mom’s policy</td><td>Can’t see it</td><td>Family access</td><td>Trusted-contact view and renewal alerts for Linda</td></tr>
+</table>
+<p class="source">Illustrative scenario. Real options depend on carriers and filed rates in each state; to be validated in our 200-household quote study.</p>
+<aside>This is the promise in Jack’s terms. A lower deductible normally costs more premium. The savings from shopping, bundling and roof credits pay for it, so Jack’s bill stays the same or drops. Be clear that these are illustrative numbers until the quote study proves them.</aside>
+</section>
+
+<section id="savings" class="foot">
+<div class="head">
+<p class="eyebrow">The thesis</p>
+<h2>Five levers stack to up to 70% savings</h2>
+</div>
+<table>
+<tr class="thead"><th style="width:34%">Lever</th><th style="width:22%">Well-shopped</th><th style="width:22%">Typical</th><th style="width:22%">Overpriced, mitigated</th></tr>
+<tr><td>1 · AI replaces broker cost</td><td>×0.82</td><td>×0.80</td><td>×0.78</td></tr>
+<tr><td>2 · Always the best price</td><td>×0.95</td><td>×0.85</td><td>×0.65</td></tr>
+<tr><td>3 · Mitigation discounts</td><td>×1.00</td><td>×0.90</td><td>×0.70</td></tr>
+<tr><td>4 · Right-sized coverage</td><td>×0.95</td><td>×0.92</td><td>×0.85</td></tr>
+<tr><td>5 · Returned profit (MGA)</td><td>×1.00</td><td>×0.98</td><td>×0.95</td></tr>
+<tr style="background:#F2E3C4"><td>Customer saves</td><td>~26%</td><td>~45%</td><td>~71%</td></tr>
+</table>
+<p class="source">Model estimates, to be validated by a 200-household quote study. About $72 of every $100 of premium pays losses, so removing the broker alone can’t reach 70%.</p>
+<aside>Be upfront: 70% is real for a meaningful slice of customers, not the average. AI alone cuts distribution and servicing cost by about 63–70%, which is about 18–22% of premium. The rest comes from re-shopping, mitigation such as FORTIFIED roofs, and right-sized coverage.</aside>
+</section>
+
+<section id="roles" class="dark">
+<div class="head">
+<p class="eyebrow">Two stories, one mission</p>
+<h2>Jack is the hero of his story. InsureMe is the hero of ours.</h2>
+</div>
+<div class="cards two">
+<div class="card rise" style="--i:0"><h3>Jack’s story</h3><p class="body"><b>Hero:</b> Jack</p><p class="body"><b>Problem:</b> costly coverage, a deductible he can’t afford, alone at claim time</p><p class="body"><b>Guide:</b> InsureMe’s AI agent, backed by licensed humans</p><p class="body"><b>Success:</b> lower deductible, lower bill, never alone</p></div>
+<div class="card rise" style="--i:1"><h3>InsureMe’s story</h3><p class="body"><b>Hero:</b> InsureMe</p><p class="body"><b>Problem:</b> proving an AI broker beats the old model, state by state</p><p class="body"><b>Guide:</b> you, our investors: capital, counsel and connections</p><p class="body"><b>Success:</b> licensed in 4 states, 1,000 policies, then our own product</p></div>
+</div>
+<aside>This is the turn in the deck. So far Jack has been the hero, with our AI agent as his guide. From here, InsureMe is the hero facing its own challenge, and the investors in the room are the guide we need. Everything that follows is InsureMe’s plan.</aside>
+</section>
+
+<section id="tam" class="foot">
+<div class="head">
+<p class="eyebrow">Market size</p>
+<h2>Millions of Jacks: a $173B market</h2>
+</div>
+<div class="stats four">
+<div class="stat rise" style="--i:0"><p class="label">TAM</p><p class="num">$173B</p><p class="label">US homeowners premiums, 2024</p></div>
+<div class="stat rise" style="--i:1"><p class="label">Our segment</p><p class="num">~$88B</p><p class="label">~40M veteran and 65+ homeowner households × ~$2,200</p></div>
+<div class="stat rise" style="--i:2"><p class="label">SAM</p><p class="num">~$15B</p><p class="label">That segment in IN, TX, IL and VA (~18% of the US)</p></div>
+<div class="stat rise" style="--i:3"><p class="label">SOM, year 5</p><p class="num">~$65M</p><p class="label">premium on ~25,000 policies; ~$7.8M revenue at 12%</p></div>
+</div>
+<p class="source">S&amp;P Global (2025); ACS 2024 (43.6M households with a member 65+) × 79% ownership; 17.3M veterans (CNAS), 49.7% aged 65+ (USAFacts). Segment, SAM and SOM are our estimates.</p>
+<aside>How the segment was built: about 34M homeowner households with someone 65 or older, plus about 6.7M veteran homeowners under 65, times an average premium of about $2,200. The four launch states hold about 18% of the US population. The year-5 target of 25,000 policies is under 0.5% of the launch-state segment, and every one of them is a Jack or a Linda.</aside>
+</section>
+
+<section id="market" class="dark foot">
+<div class="head">
+<p class="eyebrow">Market</p>
+<h2>Where we start: four launch states</h2>
+</div>
+<div class="stats">
+<div class="stat rise" style="--i:0"><p class="num">+19%</p><p class="label">Texas homeowners rates in 2024. Jack’s state, with the largest military footprint.</p></div>
+<div class="stat rise" style="--i:1"><p class="num">+27%</p><p class="label">State Farm’s Illinois increase in 2025, which led to a new rate-review law</p></div>
+<div class="stat rise" style="--i:2"><p class="num">4</p><p class="label">launch states: Indiana and Texas (red), Illinois and Virginia (blue)</p></div>
+</div>
+<p class="body">Virginia: Hampton Roads veteran density, likely our first license. Indiana: a low-cost test market, and where Linda lives.</p>
+<p class="source">Sources: TDI; WTTW (2025–26). Two red and two blue states spread political and regulatory risk.</p>
+<aside>Two red and two blue states spread political and regulatory risk. Virginia is the likely first state to prove the veteran channel.</aside>
+</section>
+
+<section id="bmc" style="gap:24px">
+<div class="head">
+<p class="eyebrow">Business model canvas</p>
+<h2>How InsureMe creates and captures value</h2>
+</div>
+<div class="bmc">
+<div class="blk" style="grid-row:1 / 3; grid-column:1"><h3>Partners</h3><p class="item">Carriers &amp; their APIs</p><p class="item">Property-data vendors</p><p class="item">Veterans’ groups</p><p class="item">VA-loan lenders</p><p class="item">Senior organizations</p><p class="item">Later: fronting carrier, reinsurers</p></div>
+<div class="blk" style="grid-row:1; grid-column:2"><h3>Activities</h3><p class="item">AI broker agent</p><p class="item">Licensed oversight</p><p class="item">Watchdog &amp; claims help</p><p class="item">Compliance in 4 states</p></div>
+<div class="blk" style="grid-row:2; grid-column:2"><h3>Resources</h3><p class="item">Licenses &amp; appointments</p><p class="item">AI platform</p><p class="item">Veteran-staffed advisors</p><p class="item">Trusted brand</p></div>
+<div class="blk vp" style="grid-row:1 / 3; grid-column:3"><h3>Value</h3><p class="item">Pay less for the same or better coverage</p><p class="item">Deductibles families can afford</p><p class="item">Never alone at claim time</p><p class="item">Family can help</p><p class="item">Never dropped without a plan</p></div>
+<div class="blk" style="grid-row:1; grid-column:4"><h3>Relationships</h3><p class="item">AI agent, 24/7</p><p class="item">A human a call away</p><p class="item">Proactive alerts</p></div>
+<div class="blk" style="grid-row:2; grid-column:4"><h3>Channels</h3><p class="item">Veterans’ posts</p><p class="item">VA-loan closings</p><p class="item">Adult children online</p><p class="item">Referrals</p></div>
+<div class="blk" style="grid-row:1 / 3; grid-column:5"><h3>Customers</h3><p class="item">Veteran homeowners (~13M)</p><p class="item">Homeowners 65+ (~34M)</p><p class="item">Adult children helping a parent</p><p class="item">VA-loan home buyers</p></div>
+</div>
+<div class="bmc-bottom">
+<div class="blk"><h3>Costs</h3><p class="item">AI and data APIs · licensed advisors · customer acquisition · licensing, E&amp;O and legal · later, fronting and reinsurance</p></div>
+<div class="blk"><h3>Revenue</h3><p class="item">Carrier commission ~10–15% (~$264+ per policy a year) · bundles · optional family plan · later, MGA fees and profit share</p></div>
+</div>
+<aside>This is the one-page view of the business. Point at the center column: everything exists to deliver Jack’s value proposition. Commission revenue recurs every year Jack renews, and the costs that matter most are advisors and customer acquisition.</aside>
+</section>
+
+<section id="model" class="foot">
+<div class="head">
+<p class="eyebrow">Business model</p>
+<h2>Agency first, then our own product</h2>
+</div>
+<div class="cards">
+<div class="card rise" style="--i:0"><p class="eyebrow">Phase 1</p><h3>Licensed digital agency</h3><p class="body">Carrier commission of about 10–15%. About $264 a year per policy, recurring at renewal. Bundles: auto, umbrella, flood.</p></div>
+<div class="card rise" style="--i:1"><p class="eyebrow">Phase 2</p><h3>MGA on fronting paper</h3><p class="body">Our own homeowners product for the segment. Lower expense load becomes a lower filed price. Commission + fees + profit share.</p></div>
+<div class="card rise" style="--i:2"><p class="eyebrow">Phase 3</p><h3>Carrier or reciprocal</h3><p class="body">Only if Phase 2 proves the loss ratio. Full premium and underwriting profit returned to members.</p></div>
+</div>
+<p class="source">$264 = $2,200 premium × 12% commission (assumption to validate per state).</p>
+<aside>Phase 1 is capital-light and fast. The AI’s savings only become a lower price once we price the product ourselves in Phase 2. Until then, savings come from shopping, mitigation and right-sizing.</aside>
+</section>
+
+<section id="gtm">
+<div class="head">
+<p class="eyebrow">Go-to-market</p>
+<h2>Win where trust already lives</h2>
+</div>
+<div class="cards two">
+<div class="card rise" style="--i:0"><h3>Veteran channels</h3><p class="body">Veterans’ group posts (VFW, Legion, DAV). VA-loan lenders and military realtors: a quote at closing.</p></div>
+<div class="card rise" style="--i:1"><h3>Elder channels</h3><p class="body">Adult children who manage a parent’s home. Senior centers, Area Agencies on Aging, elder-law and estate attorneys, faith communities.</p></div>
+<div class="card rise" style="--i:2"><h3>Content &amp; AI discovery</h3><p class="body">“What to do when your insurer drops you.” “Storm-scam warning signs.” Quotable inside AI assistants.</p></div>
+<div class="card rise" style="--i:3"><h3>Unit-economics guardrail</h3><p class="body">Customer acquisition cost below about 1.5 years of commission, proven by a three-channel pilot.</p></div>
+</div>
+<aside>Customer acquisition cost is the main risk; GEICO replaced commissions with a billion-dollar ad budget. Our plan relies on community channels and referrals, not mass advertising.</aside>
+</section>
+
+<section id="competition" class="foot">
+<div class="head">
+<p class="eyebrow">Competition</p>
+<h2>Strong brands, real gaps</h2>
+</div>
+<table style="font-size:26px">
+<tr class="thead"><th style="width:26%">Player</th><th style="width:37%">Strength</th><th style="width:37%">Gap we fill</th></tr>
+<tr><td>USAA</td><td>Veteran brand, price, claims ratings</td><td>Doesn’t fit every veteran; no shopping across carriers</td></tr>
+<tr><td>AARP / The Hartford</td><td>40+ year endorsed program for 50+</td><td>Not offered in CA or FL; one carrier only</td></tr>
+<tr><td>VFW program (Lockton)</td><td>Endorsed affinity broker</td><td>A traditional broker model</td></tr>
+<tr><td>Digital brokers</td><td>Online comparison</td><td>Stop at the sale; no claims help or watchdog</td></tr>
+<tr><td>Local agents</td><td>Trust, relationships</td><td>Can’t afford to re-shop small accounts yearly</td></tr>
+</table>
+<p class="source">Sources: VFW, American Legion, The Hartford, NerdWallet, Policygenius (2025–26).</p>
+<aside>We don’t try to beat USAA on price. We shop across carriers, advocate after the sale, and serve the elders and veterans the incumbents miss.</aside>
+</section>
+
+<section id="regulation">
+<div class="head">
+<p class="eyebrow">Regulation as a moat</p>
+<h2>Licensed, compliant and at the table</h2>
+</div>
+<div class="cards two">
+<div class="card rise" style="--i:0"><h3>Licensed agency</h3><p class="body">A producer license in each state, with a designated licensed producer accountable. The AI acts for the agency, never instead of it.</p></div>
+<div class="card rise" style="--i:1"><h3>Responsible AI</h3><p class="body">Built to the NAIC AI Model Bulletin, adopted by about 25 jurisdictions including Illinois and Virginia. Human approval on binding.</p></div>
+<div class="card rise" style="--i:2"><h3>Policy agenda</h3><p class="body">Support rebating reform (the NCOIL 2025 model), mitigation discounts, and elder and veteran scam protections.</p></div>
+<div class="card rise" style="--i:3"><h3>50-state playbook</h3><p class="body">Rate regimes, rebating, residual markets and lobbying mapped state by state. Expect agent associations to push back.</p></div>
+</div>
+<aside>Insurance is regulated state by state under McCarran-Ferguson. We treat compliance as a moat: licensed humans in the loop, audit trails, and early engagement with regulators and legislators. We never imply VA or government affiliation.</aside>
+</section>
+
+<section id="roadmap">
+<div class="head">
+<p class="eyebrow">Roadmap</p>
+<h2>From proof to product</h2>
+</div>
+<div class="cards four">
+<div class="card rise" style="--i:0"><p class="eyebrow">Now</p><h3>Prove it</h3><p class="body">200-household quote study, 20 interviews, licensing plan</p></div>
+<div class="card rise" style="--i:1"><p class="eyebrow">Next</p><h3>Agency MVP</h3><p class="body">Licensed in VA first, then TX, IL, IN. 2–3 carriers.</p></div>
+<div class="card rise" style="--i:2"><p class="eyebrow">Then</p><h3>Advocacy</h3><p class="body">Claims companion, scam shield, family access, veteran partners</p></div>
+<div class="card rise" style="--i:3"><p class="eyebrow">Later</p><h3>MGA</h3><p class="body">Own homeowners product priced with AI-level expenses</p></div>
+</div>
+<p class="lead">Milestones: [first licensed state date] · [policies in force target] · [CAC target by channel]</p>
+<aside>Placeholders in brackets are for the founder to fill in. Virginia is proposed as the first licensed state for veteran density; confirm.</aside>
+</section>
+
+<section id="close" class="dark">
+<div class="persona">
+<div class="cover-wrap" style="width:1000px">
+<p class="eyebrow">Jack’s next storm</p>
+<p class="statement" style="width:1000px; font-size:80px">Next spring, when the hail comes, Jack makes one call, and <span class="hl">we’re already on it.</span></p>
+<p class="lead">InsureMe · Fair home insurance for veterans and elders</p>
+</div>
+<svg aria-label="Illustration of Jack, a relieved, smiling 48-year-old veteran, in front of his house on a clear day" width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg"><rect width="600" height="600" rx="48" fill="#F2E3C4"/><rect x="0" y="0" width="600" height="230" rx="48" fill="#BFD8EE"/><rect x="0" y="180" width="600" height="50" fill="#BFD8EE"/><circle cx="500" cy="90" r="48" fill="#E0A030"/><rect x="120" y="290" width="360" height="310" fill="#2C4A73"/><polygon points="70,305 300,120 530,305" fill="#1F3A5F"/><polyline points="70,305 300,120 530,305" fill="none" stroke="#E0A030" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/><rect x="150" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/><rect x="380" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/><path d="M130,600 C140,485 215,442 300,442 C385,442 460,485 470,600 Z" fill="#55663F"/><path d="M262,446 L300,505 L338,446 Z" fill="#E9E4D8"/><path d="M300,505 L300,600" stroke="#3F4D2F" stroke-width="6"/><rect x="272" y="378" width="56" height="78" rx="22" fill="#B97F5C"/><ellipse cx="223" cy="326" rx="15" ry="23" fill="#C98E68"/><ellipse cx="377" cy="326" rx="15" ry="23" fill="#C98E68"/><ellipse cx="300" cy="320" rx="78" ry="92" fill="#D49C76"/><path d="M232,345 C238,398 272,412 300,412 C328,412 362,398 368,345 C356,390 328,400 300,400 C272,400 244,390 232,345 Z" fill="#5A4636" opacity="0.22"/><path d="M222,305 C216,236 258,214 300,214 C344,214 386,234 378,305 C372,272 352,254 300,252 C250,254 228,272 222,305 Z" fill="#4E3C2E"/><path d="M222,305 C220,286 224,272 232,262 C232,280 228,292 226,305 Z" fill="#9C948B"/><path d="M378,305 C380,286 376,272 368,262 C368,280 372,292 374,305 Z" fill="#9C948B"/><path d="M256,298 Q270,290 286,296" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/><path d="M314,296 Q330,290 344,298" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/><circle cx="272" cy="318" r="6" fill="#23262B"/><circle cx="328" cy="318" r="6" fill="#23262B"/><path d="M300,322 Q293,348 303,355" fill="none" stroke="#A66F4F" stroke-width="4" stroke-linecap="round"/><path d="M276,372 Q300,394 324,372" fill="none" stroke="#7A4A36" stroke-width="5" stroke-linecap="round"/></svg>
+</div>
+<aside>Bring Jack’s story to its resolution, then turn to the investors for the ask on the final slide. InsureMe is not affiliated with the U.S. Department of Veterans Affairs or any government agency.</aside>
+</section>
+
+<section id="ask" class="dark foot">
+<div class="head">
+<p class="eyebrow">The ask: be our guide</p>
+</div>
+<div class="persona">
+<p class="statement" style="width:760px; font-size:72px">Every hero needs a guide. Be ours, with a <span class="hl">$600K seed</span>.</p>
+<table style="font-size:28px; width:840px">
+<tr class="thead"><th style="width:62%">Use of funds</th><th style="width:19%">Amount</th><th style="width:19%">Share</th></tr>
+<tr><td>AI platform &amp; carrier integrations</td><td>$240K</td><td>40%</td></tr>
+<tr><td>Licensed, veteran-staffed advisors</td><td>$150K</td><td>25%</td></tr>
+<tr><td>Licensing &amp; compliance, 4 states</td><td>$90K</td><td>15%</td></tr>
+<tr><td>Pilot acquisition &amp; partnerships</td><td>$90K</td><td>15%</td></tr>
+<tr><td>200-household quote study</td><td>$30K</td><td>5%</td></tr>
+</table>
+</div>
+<p class="lead">18-month milestones: licensed in IN, TX, IL and VA · 1,000 policies in force · savings and acquisition cost proven</p>
+<p class="source">[Founder name] · [email] · Proposed allocation and milestones. InsureMe is not affiliated with the U.S. Department of Veterans Affairs.</p>
+<aside>Just as our AI agent guides Jack, investors guide InsureMe, with capital, counsel and connections. The $600K seed buys proof: that the AI broker can serve Jack at a fraction of a broker’s cost, that customers really save, and that veterans’ groups and VA-loan partners bring customers cheaply. Those proofs set up the Series A and the move to our own MGA product.</aside>
+</section>
+
+</body></html>

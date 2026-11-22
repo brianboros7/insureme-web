@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600" role="img" aria-label="Illustration of Jack, a worried 48-year-old veteran, in front of his house during a hailstorm">
+  <title>Jack (worried)</title>
+  <!-- backdrop -->
+  <rect width="600" height="600" rx="48" fill="#F2E3C4"/>
+  <!-- storm sky band -->
+  <rect x="0" y="0" width="600" height="230" rx="48" fill="#9AA8BC"/>
+  <rect x="0" y="180" width="600" height="50" fill="#9AA8BC"/>
+  <!-- hail -->
+  <g fill="#FFFFFF">
+    <circle cx="70" cy="60" r="9"/><circle cx="150" cy="120" r="7"/><circle cx="235" cy="45" r="8"/>
+    <circle cx="380" cy="70" r="9"/><circle cx="470" cy="40" r="7"/><circle cx="540" cy="120" r="9"/>
+    <circle cx="110" cy="190" r="6"/><circle cx="500" cy="200" r="7"/><circle cx="320" cy="25" r="6"/>
+  </g>
+  <g stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" opacity="0.7">
+    <line x1="60" y1="35" x2="70" y2="50"/><line x1="370" y1="45" x2="380" y2="60"/><line x1="530" y1="95" x2="540" y2="110"/>
+  </g>
+  <!-- house -->
+  <rect x="120" y="290" width="360" height="310" fill="#2C4A73"/>
+  <polygon points="70,305 300,120 530,305" fill="#1F3A5F"/>
+  <polyline points="70,305 300,120 530,305" fill="none" stroke="#E0A030" stroke-width="14" stroke-linejoin="round" stroke-linecap="round"/>
+  <rect x="150" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/>
+  <rect x="380" y="340" width="70" height="70" rx="6" fill="#F2E3C4" opacity="0.85"/>
+  <!-- body / jacket -->
+  <path d="M130,600 C140,485 215,442 300,442 C385,442 460,485 470,600 Z" fill="#55663F"/>
+  <path d="M262,446 L300,505 L338,446 Z" fill="#E9E4D8"/>
+  <path d="M300,505 L300,600" stroke="#3F4D2F" stroke-width="6"/>
+  <!-- neck -->
+  <rect x="272" y="378" width="56" height="78" rx="22" fill="#B97F5C"/>
+  <!-- ears -->
+  <ellipse cx="223" cy="326" rx="15" ry="23" fill="#C98E68"/>
+  <ellipse cx="377" cy="326" rx="15" ry="23" fill="#C98E68"/>
+  <!-- head -->
+  <ellipse cx="300" cy="320" rx="78" ry="92" fill="#D49C76"/>
+  <!-- stubble -->
+  <path d="M232,345 C238,398 272,412 300,412 C328,412 362,398 368,345 C356,390 328,400 300,400 C272,400 244,390 232,345 Z" fill="#5A4636" opacity="0.22"/>
+  <!-- hair: short crop, grey at the temples -->
+  <path d="M222,305 C216,236 258,214 300,214 C344,214 386,234 378,305 C372,272 352,254 300,252 C250,254 228,272 222,305 Z" fill="#4E3C2E"/>
+  <path d="M222,305 C220,286 224,272 232,262 C232,280 228,292 226,305 Z" fill="#9C948B"/>
+  <path d="M378,305 C380,286 376,272 368,262 C368,280 372,292 374,305 Z" fill="#9C948B"/>
+  <!-- brows (worried) -->
+  <path d="M256,301 Q270,292 286,290" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/>
+  <path d="M314,290 Q330,292 344,301" fill="none" stroke="#3E3026" stroke-width="7" stroke-linecap="round"/>
+  <!-- eyes -->
+  <circle cx="272" cy="318" r="6" fill="#23262B"/>
+  <circle cx="328" cy="318" r="6" fill="#23262B"/>
+  <!-- nose -->
+  <path d="M300,322 Q293,348 303,355" fill="none" stroke="#A66F4F" stroke-width="4" stroke-linecap="round"/>
+  <!-- mouth (tight, concerned) -->
+  <path d="M282,380 Q300,371 318,380" fill="none" stroke="#7A4A36" stroke-width="5" stroke-linecap="round"/>
+</svg>

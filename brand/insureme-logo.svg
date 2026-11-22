@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 120" width="460" height="120" role="img" aria-label="InsureMe">
+  <title>InsureMe logo</title>
+  <polyline points="14,54 60,14 106,54" fill="none" stroke="#1F3A5F" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="30,70 60,44 90,70" fill="none" stroke="#E0A030" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="60" cy="72" r="8" fill="#1F3A5F"/>
+  <rect x="52" y="86" width="16" height="24" rx="8" fill="#1F3A5F"/>
+  <text x="128" y="84" font-family="Avenir Next, Avenir, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="56" font-weight="700" letter-spacing="-0.5">
+    <tspan fill="#1F3A5F">Insure</tspan><tspan fill="#C8861A">Me</tspan>
+  </text>
+</svg>
