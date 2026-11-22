@@ -14,13 +14,13 @@ import {
 } from './data'
 import './App.css'
 
-type Screen = 'home' | 'quote' | 'compare' | 'review' | 'dashboard'
+type Screen = 'home' | 'signup' | 'quote' | 'compare' | 'review' | 'dashboard'
 type TextSize = 'normal' | 'large' | 'xlarge'
 
 export default function App() {
   const [screen, setScreenState] = useState<Screen>(() => {
     const h = window.location.hash.slice(1)
-    return (['home', 'quote', 'compare', 'dashboard'] as string[]).includes(h) ? (h as Screen) : 'home'
+    return (['home', 'signup', 'quote', 'compare', 'dashboard'] as string[]).includes(h) ? (h as Screen) : 'home'
   })
   const setScreen = (s: Screen) => {
     setScreenState(s)
@@ -56,14 +56,17 @@ export default function App() {
               </button>
             ))}
           </div>
-          <button className="btn ghost" onClick={() => setAdvisorOpen(true)}>
-            Message an advisor
-          </button>
+          {screen !== 'signup' && (
+            <button className="btn primary" onClick={() => setScreen('signup')}>
+              Sign up free
+            </button>
+          )}
         </div>
       </header>
 
       <main id="main">
         {screen === 'home' && <Home onStart={() => setScreen('quote')} onDashboard={() => setScreen('dashboard')} />}
+        {screen === 'signup' && <SignUp onDone={() => setScreen('quote')} />}
         {screen === 'quote' && <Quote onDone={() => setScreen('compare')} />}
         {screen === 'compare' && (
           <Compare
@@ -112,6 +115,53 @@ function Home({ onStart, onDashboard }: { onStart: () => void; onDashboard: () =
         </ul>
       </div>
       <img className="hero-img" src={jack} alt="Illustration of a smiling veteran homeowner in front of his house" width={360} height={360} />
+    </section>
+  )
+}
+
+/* ---------- Sign up ---------- */
+function SignUp({ onDone }: { onDone: () => void }) {
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [agree, setAgree] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const submit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!name.trim() || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email) || password.length < 8 || !agree) {
+      setError('Please add your name, a valid email, a password of at least 8 characters, and agree to the terms.')
+      return
+    }
+    setError(null)
+    onDone()
+  }
+
+  return (
+    <section className="panel narrow">
+      <p className="eyebrow">Create your free account</p>
+      <h2>Sign up free</h2>
+      <p className="lead">No cost to join, no sales calls, ever. Your licensed advisors reach you only by in-app chat or email.</p>
+      <form onSubmit={submit} noValidate>
+        <label className="field">
+          Full name
+          <input value={name} onChange={(e) => setName(e.target.value)} autoComplete="name" />
+        </label>
+        <label className="field">
+          Email
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" />
+        </label>
+        <label className="field">
+          Create a password (at least 8 characters)
+          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} autoComplete="new-password" />
+        </label>
+        <Toggle label="I agree to the Terms of Service and Privacy Policy. InsureMe never sells my data." checked={agree} onChange={setAgree} />
+        {error && <p className="notice" role="alert">{error}</p>}
+        <div className="row">
+          <button type="submit" className="btn primary big">Create free account</button>
+        </div>
+        <p className="muted">Prototype: nothing is saved or sent.</p>
+      </form>
     </section>
   )
 }
